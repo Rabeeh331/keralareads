@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#31572c">
+  <meta name="description" content="KeralaReads - librarian dashboard.">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./booksmart.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./styles.css">
+  <title>KeralaReads | Librarian Dashboard</title>
+</head>
+<body data-role="admin">
+  <div class="offline-indicator" id="offlineBanner"><span>●</span> Online — changes are saved to Firebase.</div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./index.html" aria-label="KeralaReads Home"><img src="./booksmart.png" alt="Books illustration"><div><strong>KeralaReads</strong><small>Read • Track • Discover</small></div></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="./index.html">Home</a><a href="./about.html">About</a><a href="./services.html">Services</a></nav>
+      <div class="header-actions"><button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">☼</button><button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button><button class="install-top" id="installTopBtn" hidden>⇩ Install App</button></div>
+    </div>
+    <div class="mobile-nav" id="mobileNav"><a href="./index.html">Home</a><a href="./about.html">About</a><a href="./services.html">Services</a></div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-copy"><span class="eyebrow">LIBRARIAN PANEL</span><h1>Manage your library,<br><span>beautifully.</span></h1><p>Add books with their real cover images, preview content, genre and borrowing information. Changes are stored in Firebase and can be viewed from the public page.</p><div class="hero-actions"><a class="btn secondary" href="./index.html#library">View Public Library →</a></div></div>
+      <div class="hero-art"><div class="art-glow"></div><div class="book-scene"><div class="scene-copy">Organize<br><em>Every Story</em></div><div class="book-stack"><div class="scene-book green-book">LIBRARY</div><div class="scene-book cream-book">Science</div><div class="scene-book blue-book">Technology</div><div class="scene-book brown-book">History</div><div class="scene-book dark-book">Fiction</div></div></div></div>
+    </section>
+
+    <section class="stats container" aria-label="Library statistics">
+      <div class="stat-card"><div class="stat-icon green">📚</div><div><strong id="totalCount">0</strong><span>Total Books</span></div></div>
+      <div class="stat-card"><div class="stat-icon blue">✓</div><div><strong id="availableCount">0</strong><span>Available</span></div></div>
+      <div class="stat-card"><div class="stat-icon amber">↗</div><div><strong id="borrowedCount">0</strong><span>Borrowed</span></div></div>
+      <div class="stat-card"><div class="stat-icon red">!</div><div><strong id="overdueCount">0</strong><span>Overdue</span></div></div>
+    </section>
+
+    <section class="library-section container">
+      <div class="section-title"><div><span class="eyebrow">LIBRARIAN DASHBOARD</span><h2>Add & manage books</h2></div><div class="library-search-controls"><div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search title, author or ISBN..." aria-label="Search books"></div><select id="genreFilter" class="form-select genre-select" aria-label="Choose a genre"><option value="all">All Genres</option></select></div></div>
+
+      <div class="library-layout">
+        <aside class="add-card" id="addBook">
+          <div class="card-heading"><span class="heading-icon">＋</span><div><h3>Add New Book</h3><p>Cloud library management</p></div></div>
+          <form id="addForm">
+            <label>Book Title<input type="text" name="title" placeholder="Book title" required></label>
+            <label>Author<input type="text" name="author" placeholder="Author name" required></label>
+            <div class="two-col"><label>ISBN<input type="text" name="isbn" placeholder="ISBN"></label><label>Genre<input type="text" name="genre" placeholder="Fiction" required></label></div>
+
+            <label>Real Book Cover
+              <input class="form-control" id="coverImage" type="file" name="coverImage" accept="image/*">
+            </label>
+            <div class="cover-upload-preview"><img id="coverPreview" class="hidden" alt="Selected book cover preview"></div>
+
+            <label>Optional Introduction / Preview
+              <textarea class="form-control preview-input" name="previewText" rows="5" placeholder="Optional: add your own preview. For multiple pages, separate each page with ---PAGE---"></textarea>
+            </label>
+            <p class="form-note">Real cover images are compressed before being saved. If no cover is uploaded, the ISBN can be used for a real Open Library cover automatically.</p>
+            <button class="btn primary full" type="submit">Save to My Library</button>
+          </form>
+        </aside>
+
+        <div class="books-area">
+          <div class="filter-row" role="group" aria-label="Book filters"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="available">Available</button><button class="filter-btn" data-filter="borrowed">Borrowed</button><button class="filter-btn" data-filter="overdue">Overdue</button></div>
+          <div id="bookList" class="book-grid"></div>
+          <div id="emptyState" class="empty-state hidden"><div>📚</div><h3>No books found</h3><p>Try another search or change the genre/filter.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><div><strong>KeralaReads</strong><span>Library Book Tracker PWA</span></div><div>Home · About · Services</div><div>© 2026 Mini Project</div></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

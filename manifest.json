@@ -1,0 +1,37 @@
+{
+  "name": "KeralaReads - Library Book Tracker",
+  "short_name": "KeralaReads",
+  "description": "A responsive offline-first library management Progressive Web App.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f3ea",
+  "theme_color": "#31572c",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "education",
+    "books",
+    "utilities"
+  ],
+  "shortcuts": [
+    {
+      "name": "Add Book",
+      "short_name": "Add Book",
+      "url": "./index.html#addBook"
+    }
+  ]
+}

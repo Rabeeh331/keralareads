@@ -1,0 +1,15 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAF4rGDC_z6OKYRl5xZpFSknjqmLFTUU",
+  authDomain: "keralareads-f25f5.firebaseapp.com",
+  projectId: "keralareads-f25f5",
+  storageBucket: "keralareads-f25f5.firebasestorage.app",
+  messagingSenderId: "294272704114",
+  appId: "1:294272704114:web:24e2e4c5f00fd3d401eceb"
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);

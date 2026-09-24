@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#31572c">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./booksmart.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./styles.css">
+  <title>KeralaReads | Services</title>
+</head>
+<body>
+  <div class="offline-indicator" id="offlineBanner"><span>●</span> Offline mode — your services are still available.</div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./index.html">
+        <img src="./booksmart.png" alt="Books illustration">
+        <div><strong>KeralaReads</strong><small>Read • Track • Discover</small></div>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="./index.html">Home</a><a href="./about.html">About</a><a class="active" href="./services.html">Services</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="./index.html">Home</a><a href="./about.html">About</a><a class="active" href="./services.html">Services</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero container">
+      <div>
+        <span class="eyebrow">What the app offers</span>
+        <h1>Everything you need to manage a small shared library.</h1>
+        <p>Explore the features implemented in KeralaReads for this PWA mini project.</p>
+      </div>
+      <img src="./booksmart.png" alt="Books illustration">
+    </section>
+
+    <section class="container content-section">
+      <div class="service-grid">
+        <article class="service-card"><div class="service-number">01</div><div class="service-icon">📚</div><h3>Smart Book Management</h3><p>Add book title, author, ISBN and genre. Your collection appears instantly on the home page.</p><ul><li>Add books</li><li>Delete books</li><li>View complete details</li></ul></article>
+        <article class="service-card"><div class="service-number">02</div><div class="service-icon">👤</div><h3>Borrower Tracking</h3><p>Borrow a book by entering a borrower name. The app assigns a 14-day due date and supports returning the book.</p><ul><li>Borrower name</li><li>Automatic due date</li><li>Return confirmation</li></ul></article>
+        <article class="service-card"><div class="service-number">03</div><div class="service-icon">🔎</div><h3>Search & Filters</h3><p>Find books quickly using the search box or filter the collection by availability status.</p><ul><li>Title/author search</li><li>Available filter</li><li>Borrowed filter</li><li>Overdue filter</li></ul></article>
+        <article class="service-card"><div class="service-number">04</div><div class="service-icon">📊</div><h3>Library Statistics</h3><p>See total, available, borrowed and overdue counts at the top of the home page.</p><ul><li>Live counters</li><li>Status overview</li><li>Dynamic updates</li></ul></article>
+        <article class="service-card"><div class="service-number">05</div><div class="service-icon">📴</div><h3>Offline Storage</h3><p>Firebase keeps the shared library data online while the service worker caches the application shell for a fast PWA experience.</p><ul><li>Local data storage</li><li>Offline launch</li><li>Persistent records</li></ul></article>
+        <article class="service-card"><div class="service-number">06</div><div class="service-icon">📱</div><h3>PWA Installation</h3><p>The web app can be installed on supported phones and desktops for an app-like experience.</p><ul><li>Web manifest</li><li>Standalone display</li><li>Install prompt</li></ul></article>
+      </div>
+
+      <div class="cta-card">
+        <div><span class="eyebrow">Ready to try it?</span><h2>Start building your library.</h2><p>Go to Home and add your first book.</p></div>
+        <a class="btn light" href="./index.html#addBook">Add a Book →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><div><strong>KeralaReads</strong><span>Library Book Tracker PWA</span></div><div>Home · About · Services</div><div>© 2026 Mini Project</div></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
