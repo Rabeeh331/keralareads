@@ -4,7 +4,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.2/firebase
 import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "PASTE_THE_EXACT_KEY_FROM_FIREBASE",
+  apiKey: "AIzaSyAFrg4GDc_z6OkYRl5xZpFSknjgmoLFTUU",
 authDomain: "keralareads-f25f5.firebaseapp.com",
 projectId: "keralareads-f25f5",
 storageBucket: "keralareads-f25f5.firebasestorage.app",
