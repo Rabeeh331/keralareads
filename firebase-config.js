@@ -4,12 +4,13 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.2/firebase
 import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "PASTE_THE_CORRECT_API_KEY_FROM_FIREBASE",
-  authDomain: "keralareads-f25f5.firebaseapp.com",
-  projectId: "keralareads-f25f5",
-  storageBucket: "keralareads-f25f5.firebasestorage.app",
-  messagingSenderId: "294272704114",
-  appId: "1:294272704114:web:24e2e4c5f00fd3d401eceb"
+  apiKey: "PASTE_THE_EXACT_KEY_FROM_FIREBASE",
+authDomain: "keralareads-f25f5.firebaseapp.com",
+projectId: "keralareads-f25f5",
+storageBucket: "keralareads-f25f5.firebasestorage.app",
+messagingSenderId: "294272704114",
+appId: "1:294272704114:web:24e2e4c5f00fd3d401eceb",
+measurementId: "G-D1MGYQ0LF1"
 };
 
 const app = initializeApp(firebaseConfig);
