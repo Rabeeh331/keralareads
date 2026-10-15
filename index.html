@@ -10,13 +10,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./styles.css">
   <style>
-    /* Require sign-in before showing the public library page. */
+    /* Keep the library hidden until Firebase confirms the visitor is signed in. */
     body.login-required > *:not(#authModal):not(.modal-backdrop) { display: none !important; }
-    body.login-required #authModal { display: block; }
-    body.login-required #authModal .btn-close { display: none; }
     body.login-required { overflow: hidden; }
-    .auth-nav-btn { white-space: nowrap; padding: .55rem .85rem; font-size: .9rem; }
-    .auth-user-label { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .85rem; color: var(--text, #243024); }
+    body.login-required #authModal .btn-close { display: none; }
     .auth-modal { border: 1px solid rgba(49,87,44,.18); border-radius: 18px; overflow: hidden; }
     .auth-modal .modal-header { background: #f4f7ef; border-bottom: 1px solid #e4eadb; }
     .auth-modal .modal-body { padding: 1.35rem; }
@@ -27,11 +24,13 @@
     .auth-switch-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem; margin-top: 1rem; font-size: .9rem; }
     .auth-text-button { border: 0; background: transparent; color: #31572c; font-weight: 700; padding: 0; text-decoration: underline; }
     .auth-forgot { display: block; margin: .8rem auto 0; font-size: .9rem; }
+    .auth-nav-btn { white-space: nowrap; padding: .55rem .85rem; font-size: .9rem; }
+    .auth-user-label { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .85rem; color: var(--text, #243024); }
     @media (max-width: 600px) { .auth-nav-btn { padding: .45rem .55rem; font-size: .78rem; } .auth-user-label { max-width: 100px; } }
   </style>
   <title>KeralaReads | Home</title>
 </head>
-<body data-role="public">
+<body class="login-required" data-role="public">
   <div class="offline-indicator" id="offlineBanner"><span>●</span> Online — changes are saved to Firebase.</div>
 
   <header class="site-header">
@@ -61,7 +60,8 @@
     </div>
   </header>
 
-  <!-- Public user authentication: does not change the Admin page or book catalogue. -->
+
+  <!-- Login is required only for the public index page. -->
   <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content auth-modal">
@@ -73,7 +73,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p class="auth-help" id="authModeHelp">Log in to your KeralaReads account, or create a new account.</p>
+          <p class="auth-help" id="authModeHelp">Log in to your KeralaReads account.</p>
           <form id="authForm" novalidate>
             <div class="mb-3">
               <label for="authEmail" class="form-label">Email address</label>
@@ -129,10 +129,10 @@
     </section>
 
     <section class="stats container" aria-label="Library statistics">
-      <div class="stat-card"><div class="stat-icon green">📚</div><div><strong id="totalCount">0</strong><span>Total Titles</span><small>Book titles in the library</small></div></div>
-      <div class="stat-card"><div class="stat-icon blue">✓</div><div><strong id="availableCount">0</strong><span>Available Copies</span><small>Ready to borrow</small></div></div>
-      <div class="stat-card"><div class="stat-icon amber">↗</div><div><strong id="borrowedCount">0</strong><span>Borrowed Copies</span><small>With readers</small></div></div>
-      <div class="stat-card"><div class="stat-icon red">!</div><div><strong id="overdueCount">0</strong><span>Overdue Copies</span><small>Needs attention</small></div></div>
+      <div class="stat-card"><div class="stat-icon green">📚</div><div><strong id="totalCount">0</strong><span>Total Books</span><small>In the library</small></div></div>
+      <div class="stat-card"><div class="stat-icon blue">✓</div><div><strong id="availableCount">0</strong><span>Available</span><small>Ready to borrow</small></div></div>
+      <div class="stat-card"><div class="stat-icon amber">↗</div><div><strong id="borrowedCount">0</strong><span>Borrowed</span><small>With readers</small></div></div>
+      <div class="stat-card"><div class="stat-icon red">!</div><div><strong id="overdueCount">0</strong><span>Overdue</span><small>Needs attention</small></div></div>
     </section>
 
     <section class="library-section container" id="library">
