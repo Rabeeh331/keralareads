@@ -1,21 +1,18 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAFrg4GDc_z6OkYRl5xZpFSknjgmoLFTUU",
+  apiKey: "PASTE_THE_CORRECT_API_KEY_FROM_FIREBASE",
   authDomain: "keralareads-f25f5.firebaseapp.com",
   projectId: "keralareads-f25f5",
   storageBucket: "keralareads-f25f5.firebasestorage.app",
   messagingSenderId: "294272704114",
-  appId: "1:294272704114:web:24e2e4c5f00fd3d401eceb",
-  measurementId: "G-D1MGYQ0LF1"
+  appId: "1:294272704114:web:24e2e4c5f00fd3d401eceb"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+export const db = getFirestore(app);
+export const auth = getAuth(app);
