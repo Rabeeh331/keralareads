@@ -124,16 +124,9 @@ $("#logoutBtn")?.addEventListener("click", async () => {
   }
 });
 
-let authStateKnown = false;
 const authModalElement = $("#authModal");
 
-// Prevent closing the login modal until Firebase confirms a signed-in user.
-authModalElement?.addEventListener("hide.bs.modal", (event) => {
-  if (!authStateKnown || !auth.currentUser) event.preventDefault();
-});
-
 onAuthStateChanged(auth, (user) => {
-  authStateKnown = true;
   const loginButton = $("#loginNavBtn");
   const userLabel = $("#authUserLabel");
   const logoutButton = $("#logoutBtn");
@@ -147,7 +140,9 @@ onAuthStateChanged(auth, (user) => {
       userLabel.title = user.email || "Signed in";
     }
     if (logoutButton) logoutButton.hidden = false;
-    window.bootstrap?.Modal.getInstance(authModalElement)?.hide();
+    if (authModalElement && window.bootstrap) {
+      window.bootstrap.Modal.getInstance(authModalElement)?.hide();
+    }
   } else {
     document.body.classList.add("login-required");
     if (loginButton) loginButton.hidden = false;
@@ -155,7 +150,9 @@ onAuthStateChanged(auth, (user) => {
     if (logoutButton) logoutButton.hidden = true;
     if (authModalElement && window.bootstrap) {
       window.bootstrap.Modal.getOrCreateInstance(authModalElement, {
-        backdrop: "static", keyboard: false, focus: true
+        backdrop: "static",
+        keyboard: false,
+        focus: true
       }).show();
     }
   }
